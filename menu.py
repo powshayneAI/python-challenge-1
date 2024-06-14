@@ -79,7 +79,7 @@ while True:
         i += 1
 
     # Get the customer's input
-    menu_category = input("Type menu number to view or q to quit or o to order: ")
+    menu_category = input("Type menu number to view or q to quit: ")
 
     # Exit the loop if user typed 'q'
     if menu_category == 'q':
@@ -124,10 +124,31 @@ while True:
                           + f"{key}{item_spaces} | ${value}")
                     # Add 1 to the item_counter
                     item_counter += 1
-            
             print(menu_dashes)
-            input("Press enter to return to the main menu.")
+            menu_selection = input("What item would you like to order? ")
+            
+            if menu_selection.isdigit():
+            # If it is a number, convert the input to an integer and use it to check if it is in the keys of menu_items.
+                if int(menu_selection) in range(1, len(menu_items) + 1):
+                    # Get the selected item
+                    menu_index = int(menu_selection) - 1
+                    ordered_item_name = list(menu[menu_category_name].keys())[menu_index]
+                    ordered_item_price = menu[menu_category_name][ordered_item_name]
+                    print(f"You ordered: {ordered_item_name}")
+                    print(ordered_item_price)
+                    quantity = input(f"How many {ordered_item_name} (s) would you like to order?(if left blank, 1 will be applied)")
+                    if quantity.isdigit():
+                        print(f"Quantity is: {quantity}")
+                    else:
 
+                        quantity = 1
+                        print(quantity)
+                else:
+                    print("Selection is not on the menu! ")
+            else:
+                print("Input is not a number! ")
+
+            
     # elif menu_category == 'o':
     #     menu_selection = input("What item would you like to order? ")
     #     if menu_selection.isdigit():
