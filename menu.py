@@ -40,7 +40,7 @@ menu = {
 order=[]
 
 # Launch the store and present a greeting to the customer
-print("Welcome to Shev-Mart, the convenience store of your dreams.")
+print("Welcome to Shev-Mart, the 'convenience store of your dreams/nightmares'.")
 
 # Customers may want to order multiple items, so let's create a continuous
 # loop

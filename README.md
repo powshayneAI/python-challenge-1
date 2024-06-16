@@ -1,5 +1,7 @@
 # python-challenge-1
-
+## Welcome to Shev-Mart, the convenience store of yoour dreams and nightmares.
+ ----------------
+ 
  For challenge one we took a source code from one of our in class exercises that
  printed out/let us cycle through a menu that had four different sub-menus.
 
