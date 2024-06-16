@@ -60,7 +60,7 @@ print("Welcome to the variety food truck.")
 # Customers may want to order multiple items, so let's create a continuous
 # loop
 place_order = True
-while place_order == True:
+while place_order:
     # Ask the customer from which menu category they want to order
     print("From which menu would you like to order? ")
 
@@ -126,10 +126,14 @@ while place_order == True:
                 menu_selection = int(menu_selection)
 
                 # 4. Check if the menu selection is in the menu items
-                if menu_selection in range(1, len(menu_items) + 1):
+                # if menu_selection in range(1, len(menu_items) + 1):
+                if menu_selection in menu_items:
                     # Store the item name as a variable
                     item_number = menu_selection - 1
+                    
                     item_name = list(menu[menu_category_name].keys())[item_number]
+                    
+
 
                     # Ask the customer for the quantity of the menu item
                     quantity = input(f"How many {item_name} would you like? ")
