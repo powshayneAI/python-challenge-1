@@ -1,52 +1,37 @@
 # Menu dictionary
 menu = {
-    "Snacks": {
-        "Cookie": .99,
-        "Banana": .69,
-        "Apple": .49,
-        "Granola bar": 1.99
+    "Quick-Grabs": {
+        "Protein Bar": 2.99,
+        "Fruit Cup": 1.99,
+        "Hard-Boiled Egg": .69,
+        "Chips": 1.99
     },
-    "Meals": {
-        "Burrito": 4.49,
-        "Teriyaki Chicken": 9.99,
+    "Shev-Meals": {
+        "Walkin' Taco": 7.49,
+        "Chicken Bake": 9.99,
         "Sushi": 7.49,
-        "Pad Thai": 6.99,
-        "Pizza": {
-            "Cheese": 8.99,
-            "Pepperoni": 10.99,
-            "Vegetarian": 9.99
-        },
-        "Burger": {
-            "Chicken": 7.49,
-            "Beef": 8.49
-        }
+        "Loaded Nachos": 6.99,
+        "Cheese Pizza": 8.99,
+        "Pepperoni Pizza": 10.99,
+        "Vegetarian Pizza": 9.99,
     },
-    "Drinks": {
-        "Soda": {
-            "Small": 1.99,
-            "Medium": 2.49,
-            "Large": 2.99
-        },
-        "Tea": {
-            "Green": 2.49,
-            "Thai iced": 3.99,
-            "Irish breakfast": 2.49
-        },
-        "Coffee": {
-            "Espresso": 2.99,
-            "Flat white": 2.99,
-            "Iced": 3.49
-        }
+    "Shev-Bevs": {
+        "Small Soda": 1.99,
+        "Medium Soda": 2.49,
+        "Large Soda": 2.99,
+        "Small Slurpzy": 2.99,
+        "Medium Slurpzy": 3.49,
+        "Large Slurpzy": 3.99,
+        "Souvenir Cup": 10.25,
+        "Bottled Water": 4.35,
+        "Feegee Water": 4.55,
     },
-    "Dessert": {
-        "Chocolate lava cake": 10.99,
-        "Cheesecake": {
-            "New York": 4.99,
-            "Strawberry": 6.49
-        },
-        "Australian Pavlova": 9.99,
-        "Rice pudding": 4.99,
-        "Fried banana": 4.49
+    "Shev-Sweets": {
+        "Chocolate Chip Cookie": 5.25,
+        "Schnozberry Cheesecake": 7.95,
+        "IceCream Bar": 4.55,
+        "Chocolate Bar": 3.25,
+        "Candy Box": 2.50
     }
 }
 
@@ -55,14 +40,14 @@ menu = {
 order=[]
 
 # Launch the store and present a greeting to the customer
-print("Welcome to the variety food truck.")
+print("Welcome to Shev-Mart, the convenience store of your dreams.")
 
 # Customers may want to order multiple items, so let's create a continuous
 # loop
 place_order = True
 while place_order:
     # Ask the customer from which menu category they want to order
-    print("From which menu would you like to order? ")
+    print("What options ya interested in? ")
 
     # Create a variable for the menu item number
     i = 1
@@ -79,7 +64,7 @@ while place_order:
         i += 1
 
     # Get the customer's input
-    menu_category = input("Type menu number: ")
+    menu_category = input("Choose a menu number: ")
 
     # Check if the customer's input is a number
     if menu_category.isdigit():
@@ -88,10 +73,10 @@ while place_order:
             # Save the menu category name to a variable
             menu_category_name = menu_items[int(menu_category)]
             # Print out the menu category name they selected
-            print(f"You selected {menu_category_name}")
+            print(f"So you're interested in {menu_category_name}? ")
 
             # Print out the menu options from the menu_category_name
-            print(f"What {menu_category_name} item would you like to order?")
+            # print(f"What {menu_category_name} item would you like to order?")
             i = 1
             menu_items = {}
             print("Item # | Item name                | Price")
@@ -118,7 +103,7 @@ while place_order:
                     }
                     i += 1
             # 2. Ask customer to input menu item number
-            menu_selection = input("What would you like to order today? ")
+            menu_selection = input("What (number) item do ya want? ")
 
             # 3. Check if the customer typed a number
             if menu_selection.isdigit():
@@ -136,15 +121,13 @@ while place_order:
 
 
                     # Ask the customer for the quantity of the menu item
-                    quantity = input(f"How many {item_name} would you like? ")
+                    quantity = input(f"How many {item_name} do ya want? ")
 
                     # Check if the quantity is a number, default to 1 if not
                     if quantity.isdigit():
                         quantity = int(quantity)
-                        print(f"Quantity is: {quantity}!")
                     else:
                         quantity = 1
-                        print(f"So you would like {quantity}!")
                     # Add the item name, price, and quantity to the order list
                     item_price = menu[menu_category_name][item_name]
                     order_item = {
@@ -156,21 +139,21 @@ while place_order:
 
                     # Tell the customer that their input isn't valid
                 else:
-                    print("That input is invalid!")
+                    print("We ain't got that here!")
 
                 # Tell the customer they didn't select a menu option
             else:
-                print("That is not a menu option!")
+                print("That ain't on the menu!")
         else:
             # Tell the customer they didn't select a menu option
-            print(f"{menu_category} was not a menu option.")
+            print(f"{menu_category} ain't a menu option.")
     else:
         # Tell the customer they didn't select a number
-        print("You didn't select a number.")
+        print("Does that look like a number? No.")
 
     while True:
         # Ask the customer if they would like to order anything else
-        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ?")
+        keep_ordering = input("Would you want anything else? (Y)es or (N)o ?")
 
         # 5. Check the customer's input
 
@@ -184,18 +167,18 @@ while place_order:
                 
                 # Since the customer decided to stop ordering, thank them for
                 # their order
-                print("Thank you for your order!")
+                print("Good!")
                 place_order = False
                 # Exit the keep ordering question loop
                 break
 
                 # Tell the customer to try again
             case _:
-                print("Input is invalid! Please enter (Y) or (N)!")
+                print("I don't understand. Do ya want somethin' else or what?")
                 continue
 
 # Print out the customer's order
-print("This is what we are preparing for you.\n")
+print("This is what you ordered.\n")
 
 # Uncomment the following line to check the structure of the order
 print(order)
@@ -225,4 +208,4 @@ for order_item in order:
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
 total_cost = sum(item["Price"] * item["Quantity"] for item in order)
-print(f"The total cost for your order will be: ${total_cost}")
+print(f"Your total ends up bein': ${total_cost}")
