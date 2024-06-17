@@ -5,10 +5,10 @@
  For challenge one we took a source code from one of our in class exercises that
  printed out/let us cycle through a menu that had four different sub-menus.
 
- - Snacks
- - Meals
- - Drinks
- - Desserts
+ - Quick-Grabs
+ - Shev-Meals
+ - Shev-Bevs
+ - Shev-Sweets
 
  With this pre-established code we were to follow directions that would build
  a program to allow the user to orderr as many items from the menu as they would
